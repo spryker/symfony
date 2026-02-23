@@ -68,7 +68,6 @@ class DoubleSubmitProtectionExtensionTest extends Unit
 
         $this->generator = $this->getMockBuilder(TokenGeneratorInterface::class)->onlyMethods(['checkTokenEquals', 'generateToken'])->getMock();
         $this->storage = $this->getMockBuilder(StorageInterface::class)
-            ->addMethods(['checkTokenEquals'])
             ->onlyMethods(['getToken', 'setToken', 'deleteToken'])->getMock();
 
         $this->translator = $this->createTranslatorMock();
@@ -136,7 +135,7 @@ class DoubleSubmitProtectionExtensionTest extends Unit
         $this->generator->expects($this->once())
             ->method('checkTokenEquals')
             ->with($expectedToken, $expectedToken)
-            ->will($this->returnValue($valid));
+            ->willReturn($valid);
 
         $form = $this->formFactory
             ->createBuilder(FormType::class, null, ['token_field_name' => '_requestToken'])
@@ -178,15 +177,6 @@ class DoubleSubmitProtectionExtensionTest extends Unit
      */
     protected function createTranslatorMock(): TranslatorInterface
     {
-        if (method_exists(TranslatorInterface::class, 'getLocale') === false) {
-            return $this->getMockBuilder(TranslatorInterface::class)
-                ->addMethods(['getLocale'])
-                ->onlyMethods(['trans'])
-                ->getMock();
-        }
-
-        return $this->getMockBuilder(TranslatorInterface::class)
-            ->onlyMethods(['trans', 'getLocale'])
-            ->getMock();
+        return $this->createMock(TranslatorInterface::class);
     }
 }
