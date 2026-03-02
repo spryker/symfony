@@ -29,9 +29,6 @@ class SessionStorage implements StorageInterface
      */
     protected $keyPrefix = self::SESSION_KEY_PREFIX;
 
-    /**
-     * @param \Symfony\Component\HttpFoundation\Session\SessionInterface $session
-     */
     public function __construct(SessionInterface $session)
     {
         $this->session = $session;

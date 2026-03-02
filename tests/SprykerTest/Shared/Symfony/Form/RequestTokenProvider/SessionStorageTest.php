@@ -34,9 +34,6 @@ class SessionStorageTest extends Unit
      */
     protected $sessionStorage;
 
-    /**
-     * @return void
-     */
     protected function setUp(): void
     {
         parent::setUp();
@@ -45,9 +42,6 @@ class SessionStorageTest extends Unit
         $this->sessionStorage = new SessionStorage($this->sessionMock);
     }
 
-    /**
-     * @return void
-     */
     public function testSessionStorageGetToken(): void
     {
         $testKey = 'test_key';
@@ -61,9 +55,6 @@ class SessionStorageTest extends Unit
         $this->assertSame($testValue, $this->sessionStorage->getToken($testKey));
     }
 
-    /**
-     * @return void
-     */
     public function testSessionStorageSetToken(): void
     {
         $testKey = 'test_key';
@@ -76,9 +67,6 @@ class SessionStorageTest extends Unit
         $this->sessionStorage->setToken($testKey, $testValue);
     }
 
-    /**
-     * @return void
-     */
     public function testSessionStorageDeleteToken(): void
     {
         $testKey = 'test_key';

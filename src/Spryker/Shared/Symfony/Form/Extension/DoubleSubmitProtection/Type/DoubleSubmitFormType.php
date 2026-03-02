@@ -133,11 +133,6 @@ class DoubleSubmitFormType extends AbstractTypeExtension
         $view->children[$fieldName] = $tokenForm->createView($view);
     }
 
-    /**
-     * @param \Symfony\Component\OptionsResolver\OptionsResolver $resolver
-     *
-     * @return void
-     */
     public function configureOptions(OptionsResolver $resolver): void
     {
         $resolver->setDefaults(

@@ -59,9 +59,6 @@ class DoubleSubmitProtectionExtensionTest extends Unit
      */
     protected $formFactory;
 
-    /**
-     * @return void
-     */
     protected function setUp(): void
     {
         parent::setUp();
@@ -78,9 +75,6 @@ class DoubleSubmitProtectionExtensionTest extends Unit
             ->getFormFactory();
     }
 
-    /**
-     * @return void
-     */
     public function testFinishViewIgnoredForNotFormRoot(): void
     {
         $view = $this->formFactory
@@ -100,9 +94,6 @@ class DoubleSubmitProtectionExtensionTest extends Unit
         $this->assertFalse(isset($view['_requestToken']));
     }
 
-    /**
-     * @return void
-     */
     public function testFinishFormViewSuccess(): void
     {
         $expectedToken = 'TOKEN';
@@ -151,9 +142,6 @@ class DoubleSubmitProtectionExtensionTest extends Unit
         $this->assertSame($valid, $form->isValid());
     }
 
-    /**
-     * @return array
-     */
     protected function getFormExtensions(): array
     {
         return [
@@ -161,9 +149,6 @@ class DoubleSubmitProtectionExtensionTest extends Unit
         ];
     }
 
-    /**
-     * @return array
-     */
     public function booleanDataProvider(): array
     {
         return [

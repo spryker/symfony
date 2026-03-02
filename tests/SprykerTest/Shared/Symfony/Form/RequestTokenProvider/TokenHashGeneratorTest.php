@@ -28,18 +28,12 @@ class TokenHashGeneratorTest extends Unit
      */
     protected $tokenGenerator;
 
-    /**
-     * @return void
-     */
     protected function setUp(): void
     {
         parent::setUp();
         $this->tokenGenerator = new TokenHashGenerator();
     }
 
-    /**
-     * @return void
-     */
     public function testTokenHashGeneratorGeneratesRandomHashes(): void
     {
         $hashOne = $this->tokenGenerator->generateToken();

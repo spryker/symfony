@@ -55,9 +55,6 @@ class DoubleSubmitProtectionExtension extends AbstractExtension
         $this->translationDomain = $translationDomain;
     }
 
-    /**
-     * @return array
-     */
     protected function loadTypeExtensions(): array
     {
         return [
